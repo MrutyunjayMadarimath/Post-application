@@ -1,6 +1,7 @@
 let form = document.getElementById('form');
 let input = document.querySelector('#input');
 let msg = document.querySelector('#msg');
+let posts = document.querySelector('#posts');
 
 form.addEventListener('submit', (e)=>{
     console.log('button clicked');
@@ -16,12 +17,19 @@ let formValidation = ()=>{
     } 
     else{
         msg.innerHTML = '';
-        console.log('Post submitted successfully')
-
+        console.log('Post submitted successfully');
+        acceptData();
     }
 };
 
 
 let data = {};
 
-let acceptData = () => {};
+let acceptData = ()  => {
+    data['post'] = input.value;
+    console.log(data);
+};
+
+let createPost = () => {
+
+}
