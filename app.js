@@ -36,8 +36,17 @@ let createPost = () => {
         ` <div>
     <p>${data.post}</p>
     <span class="options">
-        <i class="fa-regular fa-pen-to-square"></i>
-        <i class="fa-regular fa-trash-can"></i>
+        <i onClick="editPost(this)" class="fa-regular fa-pen-to-square"></i>
+        <i onClick="deletePost(this)" class="fa-regular fa-trash-can"></i>
     </span>
 </div>`;
+input.value = '';
 };
+
+let deletePost = (e) => {
+     e.parentElement.parentElement.remove();
+}
+
+let editPost = (e) => {
+    input.value = e.parentElement.previousElementSibling.innerHTML;
+}
