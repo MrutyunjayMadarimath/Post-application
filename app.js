@@ -3,19 +3,19 @@ let input = document.querySelector('#input');
 let msg = document.querySelector('#msg');
 let posts = document.querySelector('#posts');
 
-form.addEventListener('submit', (e)=>{
+form.addEventListener('submit', (e) => {
     console.log('button clicked');
     formValidation();
 
     e.preventDefault();
 });
 
-let formValidation = ()=>{
-    if(input.value === ''){
+let formValidation = () => {
+    if (input.value === '') {
         msg.innerHTML = 'Post cannot be blank';
-    console.log('Failed to submit the post')
-    } 
-    else{
+        console.log('Failed to submit the post')
+    }
+    else {
         msg.innerHTML = '';
         console.log('Post submitted successfully');
         acceptData();
@@ -25,11 +25,19 @@ let formValidation = ()=>{
 
 let data = {};
 
-let acceptData = ()  => {
+let acceptData = () => {
     data['post'] = input.value;
     console.log(data);
+    createPost();
 };
 
 let createPost = () => {
-
-}
+    posts.innerHTML +=
+        ` <div>
+    <p>${data.post}</p>
+    <span class="options">
+        <i class="fa-regular fa-pen-to-square"></i>
+        <i class="fa-regular fa-trash-can"></i>
+    </span>
+</div>`;
+};
